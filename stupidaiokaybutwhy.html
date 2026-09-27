@@ -211,9 +211,6 @@
                     <i class="fa-solid fa-bookmark text-editorial-pink text-xs"></i> <span class="hidden sm:inline">SAVED</span>
                     <span id="saved-count" class="bg-editorial-pink text-white text-[10px] px-1.5 py-0.2 rounded-full font-bold">0</span>
                 </button>
-                <button id="admin-access-btn" onclick="openAdminAuthModal()" class="bg-editorial-black text-white hover:bg-editorial-pink font-bold uppercase tracking-wider text-[10px] px-2.5 py-1 rounded transition-colors cursor-pointer">
-                    EDITOR ACCESS
-                </button>
             </div>
         </div>
 
@@ -1190,16 +1187,13 @@
 
         window.updateAdminUI = function() {
             const bar = document.getElementById('admin-active-bar');
-            const btn = document.getElementById('admin-access-btn');
             const adminElements = document.querySelectorAll('.admin-only');
 
             if (window.isAdminLoggedIn) {
                 if (bar) bar.classList.remove('hidden');
-                if (btn) btn.innerText = 'EDITOR ACTIVE';
                 adminElements.forEach(el => el.classList.remove('hidden'));
             } else {
                 if (bar) bar.classList.add('hidden');
-                if (btn) btn.innerText = 'EDITOR ACCESS';
                 adminElements.forEach(el => el.classList.add('hidden'));
             }
         };
